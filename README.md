@@ -132,3 +132,35 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
 
 }
 ```
+### Rest Controller BookController.java
+```java
+@RestController
+@RequestMapping("/bookRest")
+public class BookController {
+
+	 @Autowired
+	 private BookRepository bookRepository;
+	
+
+	 @RequestMapping(value="/create", method=RequestMethod.POST)
+	 public Book create(@RequestBody Book book) {		
+	     try {
+	    	 book = bookRepository.save(book);
+	       }
+	       catch (Exception ex) {
+	         return null;
+	       }
+	     return book;
+	 }
+	 
+	 
+	 @RequestMapping(value="/getOne", method=RequestMethod.GET)	
+	 public Book read(@RequestParam int id) {
+		 Book book = bookRepository.findOne(id);
+	     
+	     if(book==null) return null;
+		return book;
+	 }
+	 
+}
+```
