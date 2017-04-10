@@ -46,8 +46,8 @@ In Eclipse, create your project spring boot( Spring Starter project) and add  de
     # connection. In this example we have "dojsb" as database name and 
     # "root" as username and password.
     spring.datasource.url = jdbc:mysql://localhost:3306/<you_database>
-    spring.datasource.username = root
-    spring.datasource.password = 
+    spring.datasource.username = <database_user>
+    spring.datasource.password = <database_password>
 
     # Keep the connection alive if idle for a long time (needed in production)
     spring.datasource.testWhileIdle = true
